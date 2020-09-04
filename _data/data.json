@@ -1,0 +1,94 @@
+{
+    "lat": 33.44,
+    "lon": -94.04,
+    "timezone": "America/Chicago",
+    "timezone_offset": -18000,
+    "current": {
+        "dt": 1598913618,
+        "sunrise": 1598874608,
+        "sunset": 1598920974,
+        "temp": 30.56,
+        "feels_like": 36.89,
+        "pressure": 1009,
+        "humidity": 79,
+        "dew_point": 26.5,
+        "uvi": 9.77,
+        "clouds": 1,
+        "visibility": 10000,
+        "wind_speed": 1.5,
+        "wind_deg": 130,
+        "weather": [{
+            "id": 800,
+            "main": "Clear",
+            "description": "clear sky",
+            "icon": "01d"
+        }]
+    },
+    "daily": [{
+        "dt": 1598896800,
+        "sunrise": 1598874608,
+        "sunset": 1598920974,
+        "temp": {
+            "day": 30.56,
+            "min": 25.96,
+            "max": 30.56,
+            "night": 25.96,
+            "eve": 30.32,
+            "morn": 30.56
+        },
+        "feels_like": {
+            "day": 36.42,
+            "night": 29.21,
+            "eve": 35.97,
+            "morn": 36.42
+        },
+        "pressure": 1009,
+        "humidity": 79,
+        "dew_point": 26.5,
+        "wind_speed": 2.18,
+        "wind_deg": 206,
+        "weather": [{
+            "id": 501,
+            "main": "Rain",
+            "description": "moderate rain",
+            "icon": "10d"
+        }],
+        "clouds": 1,
+        "pop": 1,
+        "rain": 6.89,
+        "uvi": 9.77
+    }, {
+        "dt": 1598896800,
+        "sunrise": 1598874608,
+        "sunset": 1598920974,
+        "temp": {
+            "day": 30.56,
+            "min": 25.96,
+            "max": 30.56,
+            "night": 25.96,
+            "eve": 30.32,
+            "morn": 30.56
+        },
+        "feels_like": {
+            "day": 36.42,
+            "night": 29.21,
+            "eve": 35.97,
+            "morn": 36.42
+        },
+        "pressure": 1009,
+        "humidity": 79,
+        "dew_point": 26.5,
+        "wind_speed": 2.18,
+        "wind_deg": 206,
+        "weather": [{
+            "id": 501,
+            "main": "Rain",
+            "description": "moderate rain",
+            "icon": "10d"
+        }],
+        "clouds": 1,
+        "pop": 1,
+        "rain": 6.89,
+        "uvi": 9.77
+    }]
+}
