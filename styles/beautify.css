@@ -135,6 +135,12 @@ p {
     cursor: pointer;
 }
 
+/* @media only screen and (max-width: 400px) {
+   .navigation__logo {
+       
+   }
+} */
+
 /* Header rules */
 .header {
     color: #fff;
