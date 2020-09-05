@@ -46,30 +46,87 @@
                 <div class="navigation__logo">
                     <img src="./images/smashIt.png" alt="gad weather logo">
                 </div>
-                <div class="navigation__menu">
-                    <ul class="navigation__menu--item">
-                        <li class="navigation__menu--items"><a href="/">Home</a></li>
-                        <li class="navigation__menu--items"><a href="/about.html">About</a></li>
-                        <li class="navigation__menu--items"><a href="/contact.html">Contact</a></li>
-                        <li class="navigation__menu--items"><a href="/weather.html">Weather</a></li>
-                    </ul>
+                <ul class="navigation__menu--item">
+                    <li class="navigation__menu--items"><a href="/">Home</a></li>
+                    <li class="navigation__menu--items"><a href="/about.html">About</a></li>
+                    <li class="navigation__menu--items"><a href="/contact.html">Contact</a></li>
+                    <li class="navigation__menu--items"><a href="/weather.html">Weather</a></li>
+                </ul>
+                <div class="icon-container">
+                    <input type="checkbox" id="navigation-toggle" class="navigation__checkbox" />
+                    <label for="navigation-toggle" class="navigation__button">
+                        <span class="navigation__icon"></span>
+                    </label>
                 </div>
+
             </div>
+
+            <ul class="mobile__menu">
+                <li class="navigation__menu--items"><a href="/">Home</a></li>
+                <li class="navigation__menu--items"><a href="/about.html">About</a></li>
+                <li class="navigation__menu--items"><a href="/contact.html">Contact</a></li>
+                <li class="navigation__menu--items"><a href="/weather.html">Weather</a></li>
+            </ul>
         </div>
     </nav>
 
     </header>
-    <section class="map-section">
+    <section class="weather-daily">
         <div class="container">
+            <div class="weather-daily__box">
+                <h1>Event Possible</h1>
+                <div class="row">
+                    <div class="city">
+                        <h3 id="city-box" class="city-box">City</h3>
+                        <div class="time-deg">
+                            <div class="time">
+                                <!-- <span id="hour"></span> : <span id="minute"></span> : <span
+                                id="second"></span> -->
+                                <div class="time-boxes">
+                                    <div class="time-box" id="hour">
+                                        00
+                                    </div>
+                                    <div class="time-box" id="minute">
+                                        00
+                                    </div>
+                                    <div class="time-box" id="second">
+                                        00
 
-            <div class="weather__boxes" id="weather-box">
+                                    </div>
+                                    <span class="ap" id="ap">
+                                        00
+                                    </span>
+                                </div>
+                                <p id="date"></p>
+                            </div>
+                            <div class="deg" id="deg">00 <sup>0</sup>C</div>
+                        </div>
+                    </div>
+                    <div class="condition">
+                        <div class="icon"><img src="" alt="" id="icon"></div>
+                        <h2 id="city-condition"></h2>
+                        <div class="table" id="table">
 
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <footer>
+    <section class="map-section">
         <div class="container">
-            <p>tolulope</p>
+            <div class="weather__boxes" id="weather-box">
+            </div>
+        </div>
+    </section>
+    <div class="map" id='map'></div>
+    <footer class="footer">
+        <div class="container">
+            <p>
+                Copyright <span id="get-year"></span> | Coded by
+                <a href="http://twitter.com/developer_tolu" style="color: #fff;" target="_blank"
+                    class="coded-by">Folorunso Tolulope</a>
+            </p>
         </div>
     </footer>
     <div class="alert" id="alert">
@@ -77,7 +134,7 @@
     </div>
 
     <script src="/scripts/app.js"></script>
-    <!-- <script src="/scripts/life.js"></script> -->
+    <script src="/scripts/life.js"></script>
     <script src="/scripts/map.js"></script>
 </body>
 

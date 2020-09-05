@@ -22,32 +22,11 @@
             "purpose": "any maskable"
         }
     ],
-    "prefer_related_applications": false,
     "start_url": "/",
+    "prefer_related_applications": false,
     "background_color": "#0eadf4",
     "orientation": "any",
-    "display": "standalone",
+    "display": "fullscreen",
     "scope": "/",
-    "theme_color": "#0eadf4",
-    "shortcuts": [{
-            "name": "How's weather today?",
-            "short_name": "Today",
-            "description": "View weather information for today",
-            "url": "/today?source=pwa",
-            "icons": [{
-                "src": "./images/icons/pwa-192x192.png",
-                "sizes": "192x192"
-            }]
-        },
-        {
-            "name": "How's weather tomorrow?",
-            "short_name": "Tomorrow",
-            "description": "View weather information for tomorrow",
-            "url": "/tomorrow?source=pwa",
-            "icons": [{
-                "src": "./images/icons/pwa-192x192.png",
-                "sizes": "192x192"
-            }]
-        }
-    ]
+    "theme_color": "#0eadf4"
 }

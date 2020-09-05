@@ -47,26 +47,74 @@
                 <div class="navigation__logo">
                     <img src="./images/smashIt.png" alt="gad weather logo">
                 </div>
-                <div class="navigation__menu">
-                    <ul class="navigation__menu--item">
-                        <li class="navigation__menu--items"><a href="/">Home</a></li>
-                        <li class="navigation__menu--items"><a href="/about.html">About</a></li>
-                        <li class="navigation__menu--items"><a href="/contact.html">Contact</a></li>
-                        <li class="navigation__menu--items"><a href="/weather.html">Weather</a></li>
-                    </ul>
+                <ul class="navigation__menu--item">
+                    <li class="navigation__menu--items"><a href="/">Home</a></li>
+                    <li class="navigation__menu--items"><a href="/about.html">About</a></li>
+                    <li class="navigation__menu--items"><a href="/contact.html">Contact</a></li>
+                    <li class="navigation__menu--items"><a href="/weather.html">Weather</a></li>
+                </ul>
+                <div class="icon-container">
+                    <input type="checkbox" id="navigation-toggle" class="navigation__checkbox" />
+                    <label for="navigation-toggle" class="navigation__button">
+                        <span class="navigation__icon"></span>
+                    </label>
                 </div>
+
             </div>
+
+            <ul class="mobile__menu">
+                <li class="navigation__menu--items"><a href="/">Home</a></li>
+                <li class="navigation__menu--items"><a href="/about.html">About</a></li>
+                <li class="navigation__menu--items"><a href="/contact.html">Contact</a></li>
+                <li class="navigation__menu--items"><a href="/weather.html">Weather</a></li>
+            </ul>
         </div>
     </nav>
-    <div class="contact">
-        <section class="contact-section">
-            <div class="container">
-                <h1>Contact</h1>
+    <section class="contact center mt-b" id="contact">
+        <div class="container">
+            <h1 class="mb-s">Contact Us</h1>
+            <div class="contact-us-form mt-b">
+                <form class="form-tag">
+                    <div class="form-group">
+                        <input type="text" id="name" autocomplete="off" name="name" minlength="4">
+                        <label for="name">Fullname</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" autocomplete="off" name="email" class="contact-email">
+                        <label for="email" class="emailLabel">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="message" autocomplete="off" cols="50" rows="10"
+                            style="resize: none;" minlength="20"></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn">Send</button>
+                    </div>
+                </form>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>
+                Copyright <span id="get-year"></span> | Coded by
+                <a href="http://twitter.com/developer_tolu" style="color: #fff;" target="_blank"
+                    class="coded-by">Folorunso Tolulope</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        const email = document.querySelector('.contact-email');
+        const emailLabel = document.querySelector('.emailLabel');
+        email.addEventListener('change', (evt) => {
+            if (evt.target.value !== '') {
+
+            }
+        })
+    </script>
     <script src="/scripts/app.js"></script>
-    <script src="/scripts/life.js"></script>
+    <!-- <script src="/scripts/life.js"></script> -->
 </body>
 
 </html>

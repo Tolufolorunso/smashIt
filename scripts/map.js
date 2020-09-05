@@ -1,4 +1,15 @@
 const weatherBox = document.getElementById('weather-box');
+// const weatherB = document.querySelector('.weather-box');
+const imageArr = [
+	'./images/evening.jpg',
+	'./images/flowers.jpg',
+	'./images/storm.jpg',
+	'./images/thunder.jpg',
+	'./images/tree-1.jpg',
+	'./images/tree-2.jpg',
+	'./images/tree-3.jpg',
+	'./images/tree.jpg'
+];
 const getWeatherFromStorage = () => {
 	let data = JSON.parse(localStorage.getItem('smashit'));
 
@@ -29,8 +40,12 @@ const getWeatherFromStorage = () => {
 const displayWeatherDaily = props => {
 	let htmlTemplate = '';
 	props.forEach((prop, index) => {
+		// weatherB.style.background =
+
 		htmlTemplate += `
-        <div class="weather__box">
+        <div class="weather__box" style="background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${
+					imageArr[index]
+				});">
             <h3>Day-${index + 1} <span>${new Date(
 			prop.sunrise * 1000
 		).toLocaleDateString('en-US', {

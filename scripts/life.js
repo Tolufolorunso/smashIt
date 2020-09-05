@@ -11,11 +11,49 @@ const date = document.getElementById('date');
 const apUi = document.getElementById('ap');
 const alert = document.getElementById('alert');
 const searchForm = document.getElementById('search');
+
 const openWeatherToken = 'd2d2d256214cf836218a23bd385446f5';
 
+const mobileBtn = document.querySelector('.navigation__button');
+const isChecked = document.querySelector('.navigation__checkbox');
+const mobileMenuContainer = document.querySelector('.mobile__menu-container');
+mobileBtn.addEventListener('click', evt => {
+	console.log(isChecked.checked);
+	const mobileMenu = document.querySelector('.mobile__menu');
+	if (isChecked.checked) {
+		mobileMenu.classList.remove('showIcon');
+		mobileMenu.style.zIndex = '1000';
+		mobileMenuContainer.classList.remove('menu-container');
+
+		// document.querySelector('header').style.zIndex = '-1000';
+		// document.querySelector('footer').style.zIndex = '-1000';
+	} else {
+		mobileMenu.classList.add('showIcon');
+		mobileMenuContainer.classList.add('menu-container');
+	}
+});
+
 const eventListener = () => {
-	searchForm.addEventListener('submit', searchCity);
+	if (searchForm) {
+		searchForm.addEventListener('submit', searchCity);
+	}
+
 	document.addEventListener('DOMContentLoaded', defaultCityLoaded);
+	window.addEventListener('online', updateOnlineStatus);
+	window.addEventListener('offline', updateOnlineStatus);
+};
+
+const updateOnlineStatus = evt => {
+	if (!navigator.onLine) {
+		showAlert(
+			'fail',
+			'You are offline, current information may not be accurate'
+		);
+		console.log('offline');
+	} else {
+		showAlert('success', 'You are back online');
+		console.log('online');
+	}
 };
 
 const addToLocalStorage = props => {
@@ -147,7 +185,7 @@ const showAlert = (alertType, alertMessage) => {
 		alertParagraph.textContent = '';
 		alertDiv.style.background = '';
 		alertDiv.style.opacity = 0;
-	}, 2000);
+	}, 3000);
 };
 
 const fetchCityAndCountry = async props => {
@@ -230,7 +268,7 @@ const searchCity = evt => {
 
 	city.value = '';
 
-	const callMap = fetchCityAndCountry({ cityName, country });
+	fetchCityAndCountry({ cityName, country });
 };
 
 const fetchDailyWeather = props => {
