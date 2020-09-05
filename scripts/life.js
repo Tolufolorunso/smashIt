@@ -146,7 +146,7 @@ const displayData = props => {
 	cityCondition.textContent = main;
 	cityCondition.classList.add('city-condition');
 	cityBox.textContent = cityName;
-	const iconSrc = `http://openweathermap.org/img/w/${icon}.png`;
+	const iconSrc = `https://openweathermap.org/img/w/${icon}.png`;
 	iconUrl.setAttribute('src', iconSrc);
 };
 
