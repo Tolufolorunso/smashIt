@@ -12,14 +12,7 @@
     <title>smashIt | WeatherApp</title>
     <meta name="description" content="This is smash site">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="manifest.json">
 
-    <link rel="icon" type="image/png" href="/iconx/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/iconx/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/iconx/android-192x192.png" sizes="192x192">
-    <link rel="apple-touch-icon" href="/iconx/apple-touch-icon-180x180.png" sizes="180x180">
-    <meta name="msapplication-config" content="/iconx/browserconfig.xml">
-    <meta name="theme-color" content="#0EADF4" />
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
@@ -32,8 +25,6 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
     <!-- Custom css -->
     <link rel="stylesheet" href="/styles/beautify.css">
-
-    </style>
 </head>
 
 
@@ -105,6 +96,19 @@
         </div>
     </footer>
     <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker is registered', registration);
+                    })
+                    .catch(err => {
+                        console.error('Registration failed:', err);
+                    });
+            });
+        }
+    </script>
+    <script>
         const email = document.querySelector('.contact-email');
         const emailLabel = document.querySelector('.emailLabel');
         email.addEventListener('change', (evt) => {
@@ -113,8 +117,6 @@
             }
         })
     </script>
-    <script src="/scripts/app.js"></script>
-    <!-- <script src="/scripts/life.js"></script> -->
 </body>
 
 </html>

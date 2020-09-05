@@ -24,9 +24,6 @@ mobileBtn.addEventListener('click', evt => {
 		mobileMenu.classList.remove('showIcon');
 		mobileMenu.style.zIndex = '1000';
 		mobileMenuContainer.classList.remove('menu-container');
-
-		// document.querySelector('header').style.zIndex = '-1000';
-		// document.querySelector('footer').style.zIndex = '-1000';
 	} else {
 		mobileMenu.classList.add('showIcon');
 		mobileMenuContainer.classList.add('menu-container');
@@ -100,19 +97,6 @@ const displayData = props => {
 			lon
 		}
 	} = props;
-
-	// console.log(
-	// 	cityName,
-	// 	lat,
-	// 	lon,
-	// 	countryName,
-	// 	main,
-	// 	description,
-	// 	icon,
-	// 	temp,
-	// 	sunrise,
-	// 	sunset
-	// );
 
 	let sec, date, localTime;
 

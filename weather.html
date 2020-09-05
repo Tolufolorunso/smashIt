@@ -12,13 +12,7 @@
     <title>smashIt | WeatherApp</title>
     <meta name="description" content="This is smash site">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="./manifest.json">
-    <link rel="icon" type="image/png" href="/iconx/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/iconx/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/iconx/android-192x192.png" sizes="192x192">
-    <link rel="apple-touch-icon" href="/iconx/apple-touch-icon-180x180.png" sizes="180x180">
-    <meta name="msapplication-config" content="/iconx/browserconfig.xml">
-    <meta name="theme-color" content="#0EADF4" />
+
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
@@ -31,8 +25,6 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
     <!-- Custom css -->
     <link rel="stylesheet" href="/styles/beautify.css">
-
-    </style>
 </head>
 
 
@@ -132,10 +124,111 @@
     <div class="alert" id="alert">
         <p id="alert-p">successfully added</p>
     </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker is registered', registration);
+                    })
+                    .catch(err => {
+                        console.error('Registration failed:', err);
+                    });
+            });
+        }
+    </script>
+    <script>
+        const weatherBox = document.getElementById('weather-box');
+        // const weatherB = document.querySelector('.weather-box');
+        const imageArr = [
+            './images/evening.jpg',
+            './images/flowers.jpg',
+            './images/storm.jpg',
+            './images/thunder.jpg',
+            './images/tree-1.jpg',
+            './images/tree-2.jpg',
+            './images/tree-3.jpg',
+            './images/tree.jpg'
+        ];
+        const getWeatherFromStorage = () => {
+            let data = JSON.parse(localStorage.getItem('smashit'));
 
-    <script src="/scripts/app.js"></script>
+            // if (!data) {
+            // 	console.log('No data to fetch');
+            // 	return 'No data to fetch';
+            // }
+            console.log(data.data);
+
+            const {
+                cityName,
+                countryName,
+                data: {
+                    daily,
+                    current: {
+                        sunrise,
+                        sunset,
+                        temp,
+                        weather: [{
+                            main,
+                            description,
+                            icon
+                        }]
+                    },
+                    lat,
+                    lon
+                }
+            } = data;
+            console.log(cityName);
+
+            displayWeatherDaily(daily);
+        };
+
+        const displayWeatherDaily = props => {
+            let htmlTemplate = '';
+            props.forEach((prop, index) => {
+                // weatherB.style.background =
+
+                htmlTemplate += `
+        <div class="weather__box" style="background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${
+					imageArr[index]
+				});">
+            <h3>Day-${index + 1} <span>${new Date(
+			prop.sunrise * 1000
+		).toLocaleDateString('en-US', {
+			month: 'short',
+			day: 'numeric',
+			weekday: 'short'
+		})}</span></h3>
+                <div class="weather__box--content">
+                    <div class="weather__box-top">
+                        <ul>
+                            <li>Humidity- <span>${prop.humidity}%</span></li>
+                            <li>Weather- <span>${
+															prop.weather[0].main
+														}</span></li>
+                        </ul>
+                    </div>
+                    <div class="weather__box-bottom">
+                        <ul>
+                            <li>Temperature- <span>${Math.round(
+															prop.temp.day
+														)}<sup>0</sup>C</span></li>
+                            <li>Wind_speed- <span>${Math.round(
+															prop.wind_speed
+														)}/s</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        `;
+            });
+
+            weatherBox.innerHTML = htmlTemplate;
+        };
+
+        getWeatherFromStorage();
+    </script>
     <script src="/scripts/life.js"></script>
-    <script src="/scripts/map.js"></script>
 </body>
 
 </html>
