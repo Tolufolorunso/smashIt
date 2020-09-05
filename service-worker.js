@@ -29,7 +29,7 @@ const filesToCache = [
 	'./images/icons/tile310x310.png'
 ];
 
-const staticCacheName = 'pages-cache-v2';
+const staticCacheName = 'pages-cache-v4';
 
 self.addEventListener('install', event => {
 	// Add a call to skipWaiting here

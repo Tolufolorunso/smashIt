@@ -22,11 +22,11 @@ mobileBtn.addEventListener('click', evt => {
 	const mobileMenu = document.querySelector('.mobile__menu');
 	if (isChecked.checked) {
 		mobileMenu.classList.remove('showIcon');
-		mobileMenu.style.zIndex = '1000';
 		mobileMenuContainer.classList.remove('menu-container');
 	} else {
 		mobileMenu.classList.add('showIcon');
 		mobileMenuContainer.classList.add('menu-container');
+		mobileMenu.style.zIndex = '1000';
 	}
 });
 
@@ -42,14 +42,9 @@ const eventListener = () => {
 
 const updateOnlineStatus = evt => {
 	if (!navigator.onLine) {
-		showAlert(
-			'fail',
-			'You are offline, current information may not be accurate'
-		);
-		console.log('offline');
+		showAlert('fail', 'You are offline');
 	} else {
 		showAlert('success', 'You are back online');
-		console.log('online');
 	}
 };
 
