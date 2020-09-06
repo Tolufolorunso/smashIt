@@ -833,11 +833,11 @@ tr:hover {
         flex-direction: column;
     }
 
-    .our-company--image {
+    .about__me-image {
         width: 100%;
     }
 
-    .our-company-message {
+    .about__me-message {
         width: 100%;
     }
 }

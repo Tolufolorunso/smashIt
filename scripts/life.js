@@ -18,16 +18,18 @@ const mobileBtn = document.querySelector('.navigation__button');
 const isChecked = document.querySelector('.navigation__checkbox');
 const mobileMenuContainer = document.querySelector('.mobile__menu-container');
 mobileBtn.addEventListener('click', evt => {
-	console.log(isChecked.checked);
+	// console.log(looooooooo);
 	const mobileMenu = document.querySelector('.mobile__menu');
-	if (isChecked.checked) {
-		mobileMenu.classList.remove('showIcon');
-		mobileMenuContainer.classList.remove('menu-container');
-	} else {
-		mobileMenu.classList.add('showIcon');
-		mobileMenuContainer.classList.add('menu-container');
-		mobileMenu.style.zIndex = '1000';
-	}
+	mobileMenu.classList.toggle('showIcon');
+	// mobileMenuContainer.classList.toggle('menu-container');
+	// if (mobileBtn) {
+	// 	mobileMenu.classList.remove('showIcon');
+	// 	mobileMenuContainer.classList.remove('menu-container');
+	// } else {
+	// 	mobileMenu.classList.add('showIcon');
+	// 	mobileMenuContainer.classList.add('menu-container');
+	// 	mobileMenu.style.zIndex = '1000';
+	// }
 });
 
 const eventListener = () => {
