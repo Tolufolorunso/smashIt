@@ -13,6 +13,25 @@
     <meta name="description" content="This is smash site">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="smashIt | WeatherApp">
+    <meta name="apple-mobile-web-app-title" content="smashIt | WeatherApp">
+    <meta name="theme-color" content="#0eadf4">
+    <meta name="msapplication-navbutton-color" content="#0eadf4">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/">
+
+    <link rel="icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+    <link rel="icon" sizes="192x192" href="icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/images/icons/pwa-192x192.png">
+    <link rel="icon" sizes="310x310" href="/images/icons/tile310x310.png">
+    <link rel="icon" sizes="512x512" href="/images/icons/pwa-512x512.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/pwa-512x512.png">
+
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
@@ -32,6 +51,10 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+    <section id="installBanner" class="banner">
+        <p>Add to home screen</p>
+        <button id="installBtn">Install app</button>
+    </section>
     <nav class="navigation">
         <div class="container">
             <div class="navigation__wrapper">
@@ -89,7 +112,7 @@
     <footer class="footer">
         <div class="container">
             <p>
-                Copyright <span id="get-year"></span> | Coded by
+                Copyright <span id="get-year">2020</span> | Coded by
                 <a href="http://twitter.com/developer_tolu" style="color: #fff;" target="_blank"
                     class="coded-by">Folorunso Tolulope</a>
             </p>
@@ -107,6 +130,36 @@
                     });
             });
         }
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', event => {
+
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            event.preventDefault();
+
+            // Stash the event so it can be triggered later.
+            deferredPrompt = event;
+
+            // Attach the install prompt to a user gesture
+            document.querySelector('#installBtn').addEventListener('click', event => {
+
+                // Show the prompt
+                deferredPrompt.prompt();
+
+                // Wait for the user to respond to the prompt
+                deferredPrompt.userChoice
+                    .then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('User accepted the A2HS prompt');
+                        } else {
+                            console.log('User dismissed the A2HS prompt');
+                        }
+                        deferredPrompt = null;
+                    });
+            });
+
+            // Update UI notify the user they can add to home screen
+            document.querySelector('#installBanner').style.display = 'flex';
+        });
     </script>
     <script>
         const email = document.querySelector('.contact-email');

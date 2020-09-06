@@ -878,3 +878,10 @@ tr:hover {
     color: #0eadf4;
     transform: rotate(2deg) scale(1.1);
 }
+
+.banner {
+    align-content: center;
+    display: none;
+    justify-content: center;
+    width: 100%;
+}
